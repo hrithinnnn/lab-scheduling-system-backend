@@ -18,20 +18,20 @@ const labCtrl = require('../controllers/labCtrl')
  */
 
 router.route('/')
-    .post(auth,requestCtrl.createRequest)
+    .post(requestCtrl.createRequest)
 
 router.route('/hod')
-    .get(auth,requestCtrl.getHODPending)
+    .get(requestCtrl.getHODPending)
 
 router.route('/hodpending/:id/:status')
-    .post(auth,requestCtrl.approveOrDenyHOD)
+    .post(requestCtrl.approveOrDenyHOD)
     // .put(requestCtrl.denyHOD)
 
 router.route('/lab')
-    .get(auth,requestCtrl.getlabPending)
+    .get(requestCtrl.getlabPending)
 
     router.route('/summary/:startdate/:enddate')
-    .get(auth,requestCtrl.getReqsBetweenDates)
+    .get(requestCtrl.getReqsBetweenDates)
 
     router.route('/check/:date/:venue/:starttime/:endtime')
     .get(requestCtrl.getAvailability);
@@ -39,18 +39,18 @@ router.route('/lab')
     router.route('/checkhod/:date/:venue/:starttime/:endtime/:id')
     .get(requestCtrl.getAvailabilityHOD);
 router.route('/lab/:id/:status/:userId')
-    .post(auth,requestCtrl.approveOrDenyLab)
+    .post(requestCtrl.approveOrDenyLab)
     // .put(requestCtrl.denylab)
 
 router.route("/get/:date")
     .get(requestCtrl.getRequests)
 
 router.route('/:id')
-    .post(auth,requestCtrl.updateRequest)
+    .post(requestCtrl.updateRequest)
     .delete(requestCtrl.deleteRequest)
 
     router.route('/search/:query')
-    .get(auth,requestCtrl.searchRequests)
+    .get(requestCtrl.searchRequests)
 
 
 module.exports = router

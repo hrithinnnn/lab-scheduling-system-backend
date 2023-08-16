@@ -237,7 +237,7 @@ getAvailability: async(req,res)=>{
     try{
         const date= new Date(req.params.date);
         const venue=req.params.venue;
-        console.log(date,venue,req.params.starttime,req.params.endtime)
+        console.log("availa:",date)
         let clashingitems=[];
         const reqs = await requests.find({$and:[{dateOfEvent:date},{labName:venue}]});
         console.log(reqs)
