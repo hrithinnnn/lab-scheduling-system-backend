@@ -42,8 +42,8 @@ router.route('/lab/:id/:status/:userId')
     .post(auth,requestCtrl.approveOrDenyLab)
     // .put(requestCtrl.denylab)
 
-router.route("/:date")
-    .get(auth,requestCtrl.getRequests)
+router.route("/get/:date")
+    .get(requestCtrl.getRequests)
 
 router.route('/:id')
     .post(auth,requestCtrl.updateRequest)

@@ -27,6 +27,10 @@ mongoose.connect(URI).catch((err)=>{
     console.log("cannot connect to server:" ,err);
 });
 
+app.get('/',(req,res)=>{
+    res.status(200).json("server is running")
+})
+
 // Listen Server
 const PORT = process.env.PORT || 5000
 app.listen(PORT, () => {

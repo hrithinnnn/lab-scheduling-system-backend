@@ -5,8 +5,8 @@ const labCtrl = require('../controllers/labCtrl')
 router.route('/')
 .post(auth, labCtrl.createLabClass)
 
-router.route("/:date")
-.get(auth, labCtrl.getLabClassess)
+router.route("/get/:date")
+.get( labCtrl.getLabClassess)
 
 router.route("/:id")
 .delete(labCtrl.deleteLabClass)

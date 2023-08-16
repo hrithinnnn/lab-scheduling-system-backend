@@ -120,8 +120,8 @@ const requestCtrl = {
     },
     getRequests: async(req, res) => {
         try {
-            console.log("hi");
             const dt=new Date(req.params.date);
+            console.log(dt);
             const reqs = await requests.find({dateOfEvent:dt});
             res.status(200).json({status:"success",reqs})
         } catch (err) {
